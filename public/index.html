@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>DILI-PK</title>
+
+        <!-- Bootstrap 
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.3.1/dist/materia/bootstrap.min.css" integrity="sha256-8CkGrzjOaLKQcuIPUmdEEJQ07Q83rdadwUrePJTaI4I=" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <!-- Font Awesome 
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" integrity="sha256-BtbhCIbtfeVWGsqxk1vOHEYXS6qcvQvLMZqjtpWUEx8=" crossorigin="anonymous" />
+        -->
+
+        <!-- Firebase -->
+        <!-- update the version number as needed -->
+        <script defer src="/__/firebase/6.1.1/firebase-app.js"></script>
+        <script defer src="/__/firebase/6.1.1/firebase-auth.js"></script>
+        <script defer src="/__/firebase/6.1.1/firebase-database.js"></script>
+        <!-- include only the Firebase features as you need
+            <script defer src="/__/firebase/6.1.1/firebase-messaging.js"></script>
+            <script defer src="/__/firebase/6.1.1/firebase-storage.js"></script>
+            -->
+            <!-- initialize the SDK after all desired features are loaded -->
+            <script defer src="/__/firebase/init.js"></script>
+
+            <!-- My Script 
+            -->
+            <script src="/js/index.js"></script>
+
+            <!-- Favicon -->
+            <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+            <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+            <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+            <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+            <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+            <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+            <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+            <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+            <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+            <link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+            <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+            <link rel="manifest" href="/favicon/manifest.json">
+            <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+            <meta name="msapplication-TileColor" content="#ffffff">
+            <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+            <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+
+    </head>
+    <body>
+
+        <!-- NAV BAR -->
+        <nav class="navbar navbar-expand-md" role="navigation" aria-label="main navigation">
+            <a class="navbar-brand" href="https://dili.pk">
+                <img src="/favicon/favicon-32x32.png" width="32" height="32" class="d-inline-block">
+                DILI-PK
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="navigation" class="collapse navbar-collapse">
+                <div class="navbar-nav mr-auto">
+                    <a id="link-about" class="nav-link">About</a>
+                    <a id="link-members" class="nav-link">Members</a>
+                    <a id="link-roadmap" class="nav-link">Roadmap</a>
+                    <a id="link-contactus" class="nav-link">Contact Us</a>
+                    <a id="link-forms" class="nav-link">Forms</a>
+                </div>
+                <form class="form-inline my-2 my-lg-0">
+                    <button id="signUp" type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal">
+                        <strong>Sign up</strong>
+                    </button>
+                    <button id="logIn" type="button" class="btn" data-toggle="modal" data-target="#logInModal">
+                        Log in
+                    </button>
+                </form>
+            </div>
+        </nav>
+
+        <!-- Sign Up Modal -->
+        <div id="signUpModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="signUpModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="signUpModalTitle">Sign Up on the DILI-PK Network</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="signUpForm" class="modal-body"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Log In Modal -->
+        <div id="logInModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="logInModalTitle">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="logInModalTitle" class="modal-title">Log In to the DILI-PK Network</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="logInForm" class="modal-body"></div>
+                    <script type="text/javascript" src="/js/forms/logIn.js"></script>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Container -->
+        <section class="container">
+            <section id="about" class="content">
+                <div id="form1"></div>
+                <div id="form2"></div>
+                <div id="form3"></div>
+                <h2>Drug Induced Liver Injury</h2>
+                <p>
+                The burden of liver diseases in Pakistan is a significant healthcare concern, amounting to large socioeconomic losses and debilitating standards of living. Drug induced liver injury (DILI) is an entity that contributes to cases of hepatotoxicity, and
+                is under investigation in different parts of the world. There is a dearth of data that would allow us to create a national database. 
+
+                <br />
+                <br />
+
+                As a low-middle income country, Pakistan harbors a different landscape of infectious diseases including hepatitis,
+                tuberculosis etc, as well as a growing number of chronic health conditions including cancer, diabetes, hypertension, etc. This directly translates into a wide spectrum of pathologies that utilize a similarly diverse set of pharmacological interventions,
+                many of which can be severely damaging to the liver.
+
+                <br />
+                <br />
+
+                The DILIpk initiative is the first step in an attempt to define the extent of this disease, formulate collaboration between public and private sector healthcare facilities and pharmaceutical industries,
+                and together create a national database that would pave the way forward for a better and a standardized approach to management of our patients with DILI.
+                </p>
+            </section>
+
+            <section id="members" class="content">
+                <p>Members</p>
+            </section>
+
+            <section id="roadmap" class="content">
+                <p>Road Map</p>
+            </section>
+
+            <!-- Contact Us Section -->
+            <section id="contactus" class="content">
+                <div class="columns is-vcentered">
+                    <div class="column">
+                        <div class="field">
+                            <label class="label">Name</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" type="text" placeholder="Your Name">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-id-card-alt"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" type="email" placeholder="me@example.com">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Subject</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" type="text" placeholder="Subject">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-id-card-alt"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Message</label>
+                            <div class="control">
+                                <textarea class="textarea" placeholder="Your Message"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="field is-grouped">
+                            <div class="control is-centered">
+                                <button class="button is-link">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column has-text-centered">
+                        <p class="title">
+                        Do you have a question or suggestion?
+                        </p>
+                        <p class="subtitle">
+                        Fill out the form and we will contact you as soon as possible. Thank you for your interest!
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="forms" class="content">
+            </section>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="level">
+                <div class="level-item">
+                    Sponsored By: Ferozsons
+                </div>
+                <div class="level-item">
+                    <a class="heading">
+                        Privacy Policy
+                    </a>
+                </div>
+            </div>
+            <div class="level">
+                <div class="level-item">
+                    &copy; 2019 DILIPK. All Rights Reserved.
+                </div>
+            </div>
+        </footer>
+
+        <code id="console" class="navbar is-fixed-bottom"></code>
+
+    </body>
+</html>
