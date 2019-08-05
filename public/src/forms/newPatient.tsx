@@ -2,7 +2,6 @@ import React from "react";
 import Form, { UiSchema } from 'react-jsonschema-form';
 import { JSONSchema6 } from 'json-schema';
 import uiSchema from "./uiSchemas";
-import InputMask from 'react-input-mask';
 
 // define schema
 export const newPatientSchema: JSONSchema6 = {

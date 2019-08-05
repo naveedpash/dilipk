@@ -22,6 +22,7 @@
     "@types/react-dom": "^16.8.5",
     "@types/react-input-mask": "^2.0.3",
     "@types/react-jsonschema-form": "^1.6.2",
+    "lodash": "^4.17.15",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
     "webpack": "^4.39.1",

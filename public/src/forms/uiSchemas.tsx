@@ -1,5 +1,5 @@
 import React from "react";
-import { FieldTemplateProps, ObjectFieldTemplateProps, UiSchema, WidgetProps } from "react-jsonschema-form";
+import { ObjectFieldTemplateProps, UiSchema, WidgetProps } from "react-jsonschema-form";
 import  InputMask from "react-input-mask";
 
 function LabTemplate(props: ObjectFieldTemplateProps) {

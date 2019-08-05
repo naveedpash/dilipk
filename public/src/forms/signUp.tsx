@@ -1,7 +1,9 @@
-import React, { Component } from "react";
-import Form, { UiSchema } from "react-jsonschema-form";
+import React from "react";
+import Form, { ISubmitEvent, UiSchema } from "react-jsonschema-form";
 import { JSONSchema6 } from "json-schema";
+import app from "../firebaseConfig";
 
+// define schema
 const schema: JSONSchema6 = {
     "title": "",
     "description": "We thank you for your interest in joining the DILI-PK network.\nPlease fill the details below and we will send you and email with your password.",
@@ -20,7 +22,6 @@ const schema: JSONSchema6 = {
             "type": "string"
         }
     }
-
 };
 
 const uiSchema: UiSchema = {
@@ -34,13 +35,27 @@ const uiSchema: UiSchema = {
 
 const log = (type: any) => console.log.bind(console, type);
 
-const signUpForm = (schema: JSONSchema6, uiSchema: UiSchema) => {
+const sendNewUserAlert = app.functions().httpsCallable("sendNewUserAlert");
+
+interface SignUpData {
+    name: string,
+    institution: string,
+    email: string
+};
+
+const onSubmit = (e: ISubmitEvent<SignUpData>) => {
+    sendNewUserAlert(e.formData)
+    .then((result: any) => { alert(result) })
+    .catch((error: any) => { alert(error.message) });
+};
+
+const signUpForm = () => {
     return (
         <Form schema={schema}
             uiSchema={uiSchema}
-            onSubmit={log("Submitted")}
+            onSubmit={onSubmit}
             onError={log("Errors!")} />
     );
 }
 
-export default signUpForm(schema, uiSchema);
+export default signUpForm();
