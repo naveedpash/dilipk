@@ -46,7 +46,10 @@ interface SignUpData {
 const onSubmit = (e: ISubmitEvent<SignUpData>) => {
     sendNewUserAlert(e.formData)
     .then((result: any) => { alert(result) })
-    .catch((error: any) => { alert(error.message) });
+    .catch((error: any) => {
+        alert(error);
+        console.log(error);
+    });
 };
 
 const signUpForm = () => {

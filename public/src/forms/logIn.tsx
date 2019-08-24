@@ -2,6 +2,7 @@ import React from "react";
 import Form, { ISubmitEvent, UiSchema } from "react-jsonschema-form";
 import { JSONSchema6 } from "json-schema";
 import app from "../firebaseConfig";
+import "bootstrap";
 
 interface LogInData {
     email: string,
@@ -41,10 +42,23 @@ const logInUI: UiSchema = {
 const log = (type: any) => console.log.bind(console, type);
 
 const onSubmit = (e: ISubmitEvent<LogInData>) => {
-    const email = e.formData.email;
-    const password = e.formData.password;
-    app.auth().signInWithEmailAndPassword(email, password)
-    .catch((e: Error) => alert(e));
+    $("#logInSubmit").attr("disabled","true");
+    $("#logInSubmit").prepend(
+        '<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>'
+    );
+    app.auth().signInWithEmailAndPassword(e.formData.email, e.formData.password)
+    .then(() => {
+        log("Logged In");
+        $("#logInSubmit").removeAttr("disabled");
+        $("#logInSubmit").children("span").remove();
+        $("#logInModal").modal('toggle');
+        $(".modal-backdrop").remove();
+    })
+    .catch((e: Error) => {
+        console.log(e);
+        $("#logInSubmit").removeAttr("disabled");
+        $("#logInSubmit").children("span").remove();
+    });
 };
 
 const logInForm = () => {
@@ -52,7 +66,11 @@ const logInForm = () => {
         <Form schema={logInSchema}
             uiSchema={logInUI}
             onSubmit={onSubmit}
-            onError={log("Errors!")} />
+            onError={log("Errors!")}>
+            <button id="logInSubmit" type="submit" className="btn btn-info">
+                Log In
+            </button>
+        </Form>
     )
 }
 
