@@ -7,11 +7,17 @@
 
         <!-- Bootstrap
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.3.1/dist/materia/bootstrap.min.css" integrity="sha256-8CkGrzjOaLKQcuIPUmdEEJQ07Q83rdadwUrePJTaI4I=" crossorigin="anonymous">
         -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.3.1/dist/materia/bootstrap.min.css" integrity="sha256-8CkGrzjOaLKQcuIPUmdEEJQ07Q83rdadwUrePJTaI4I=" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/style.css">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="css/fa/css/fontawesome.min.css">
+        <link rel="stylesheet" href="css/fa/css/solid.min.css">
+        <link rel="stylesheet" href="css/fa/css/brands.min.css">
 
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
@@ -57,7 +63,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title" id="signUpModalTitle">Sign Up on the DILI-PK Network</h3>
+                        <h3 class="modal-title display-4" id="signUpModalTitle">Sign Up on the DILI-PK Network</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -72,7 +78,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 id="logInModalTitle" class="modal-title">Log In to the DILI-PK Network</h3>
+                        <h3 id="logInModalTitle display-4" class="modal-title">Log In to the DILI-PK Network</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -83,112 +89,135 @@
         </div>
 
         <!-- Main Container -->
-        <section id="content" class="container my-auto">
+        <section id="jumbotron">
             <!-- About Section -->
-            <section id="about" class="content">
-                <h2>Drug Induced Liver Injury</h2>
-                <p>
+            <section id="about" class="container py-5">
+                <div class="row d-flex align-items-center">
+                    <img src="imgs/DILIpkOrange3.jpg" class="col-sm-4 img-fluid">
+                    <h1 class="display-3 col-sm-8">Drug Induced Liver Injury</h1>
+                </div>
+                <p class="lead">
                 The burden of liver diseases in Pakistan is a significant healthcare concern, amounting to large socioeconomic losses and debilitating standards of living. Drug induced liver injury (DILI) is an entity that contributes to cases of hepatotoxicity, and
                 is under investigation in different parts of the world. There is a dearth of data that would allow us to create a national database.
-
                 <br />
                 <br />
-
                 As a low-middle income country, Pakistan harbors a different landscape of infectious diseases including hepatitis,
                 tuberculosis etc, as well as a growing number of chronic health conditions including cancer, diabetes, hypertension, etc. This directly translates into a wide spectrum of pathologies that utilize a similarly diverse set of pharmacological interventions,
                 many of which can be severely damaging to the liver.
-
                 <br />
                 <br />
-
                 The DILIpk initiative is the first step in an attempt to define the extent of this disease, formulate collaboration between public and private sector healthcare facilities and pharmaceutical industries,
                 and together create a national database that would pave the way forward for a better and a standardized approach to management of our patients with DILI.
                 </p>
             </section>
 
             <!-- Members Section -->
-            <section id="members" class="content">
-                <h4>Members</h4>
-                <div class="row">
-                    <div class="col-sm my-auto">
-                        <h5>Chair</h5>
+            <section id="members" class="py-5 bg-primary">
+                <div class="container">
+                    <h3 class="display-4">Members</h3>
+                    <div class="row">
+                        <div class="col-sm my-2">
+                            <h5 class="display-5">Chair</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm media my-auto">
-                        <img class="mr-3" src="imgs/shahab-abid.webp" alt="Dr. Shahab Abid, Chairman">
-                        <div class="media-body">
-                            <h5>Dr. Shahb Abid</h5>
-                            <p>MBBS, FCPS, PhD</p>
+                    <div class="row">
+                        <div type="button" class="col-sm media my-2 btn btn-primary btn-lg d-flex align-items-center rounded" data-toggle="modal" data-target="#ShahabAbidModal">
+                            <img class="mr-3" src="imgs/shahab-abid.webp" alt="Dr. Shahab Abid, Chairman">
+                            <div class="media-body">
+                                <h5>Dr. Shahb Abid</h5>
+                                <p>MBBS, FCPS, PhD</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm my-2">
+                            <h5 class="display-5">Research</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div type="button" class="col-sm media my-2 btn btn-primary btn-lg d-flex align-items-center rounded" data-toggle="modal" data-target="#ShahabAbidModal">
+                            <img class="mr-3" src="imgs/adeel-khoja.webp" alt="Dr. Adeel Akbar Khoja">
+                            <div class="media-body">
+                                <h5>Dr. Adeel Akbar Khoja</h5>
+                                <p>MBBS, MSc (Epidemiology and Biostatistics)</p>
+                            </div>
+                        </div>
+                        <div type="button" class="col-sm media my-2 btn btn-primary btn-lg d-flex align-items-center rounded" data-toggle="modal" data-target="#ShahabAbidModal">
+                            <img class="mr-3" src="imgs/qurratulain-shahood.webp" alt="Dr. Qurratulain Shahood">
+                            <div class="media-body">
+                                <h5>Dr. Qurratulain Shahood</h5>
+                                <p>MBBS</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm my-2">
+                            <h5 class="display-5">App and Website Development</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div type="button" class="col-sm-6 media my-2 btn btn-primary btn-lg d-flex align-items-center rounded" data-toggle="modal" data-target="#ShahabAbidModal">
+                            <img class="mr-3" src="imgs/naveed-pasha.webp" alt="Dr. Naveed Pasha">
+                            <div class="media-body">
+                                <h5>Dr. Naveed Pasha</h5>
+                                <p>MBBS, MSc (Health Sciences Informatics)</p>
+                            </div>
+                        </div>
+                        <div type="button" class="col-sm-6 media my-2 btn btn-primary btn-lg d-flex align-items-center rounded" data-toggle="modal" data-target="#ShahabAbidModal">
+                            <img class="mr-3" src="imgs/sudhesh-kumar.webp" alt="Sudhesh Kumar">
+                            <div class="media-body">
+                                <h5>Sudhesh Kumar</h5>
+                                <p>Medical Student</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div type="button" class="col-sm-6 media my-2 btn btn-primary btn-lg d-flex align-items-center rounded" data-toggle="modal" data-target="#ShahabAbidModal">
+                            <img class="mr-3" src="imgs/rijah-chhapra.webp" alt="Dr. Rijah Chhapra">
+                            <div class="media-body">
+                                <h5>Dr. Rijah Chhapra</h5>
+                                <p>MBBS</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm my-auto">
-                        <h5>App and Website Development</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm media my-auto">
-                        <img class="mr-3" src="imgs/naveed-pasha.webp" alt="Dr. Naveed Pasha">
-                        <div class="media-body">
-                            <h5>Dr. Naveed Pasha</h5>
-                            <p>MBBS, MSc (Health Sciences Informatics)</p>
-                        </div>
-                    </div>
-                    <div class="col-sm media my-auto">
-                        <img class="mr-3" src="imgs/sudhesh-kumar.webp" alt="Sudhesh Kumar">
-                        <div class="media-body">
-                            <h5>Sudhesh Kumar</h5>
-                            <p>Medical Student</p>
-                        </div>
-                    </div>
-                    <div class="col-sm media my-auto">
-                        <img class="mr-3" src="imgs/rijah-chhapra.webp" alt="Dr. Rijah Chhapra">
-                        <div class="media-body">
-                            <h5>Dr. Rijah Chhapra</h5>
-                            <p>MBBS</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm my-auto">
-                        <h5>Research</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm media my-auto">
-                        <img class="mr-3" src="imgs/adeel-khoja.webp" alt="Dr. Adeel Akbar Khoja">
-                        <div class="media-body">
-                            <h5>Dr. Adeel Akbar Khoja</h5>
-                            <p>MBBS, MSc (Epidemiology and Biostatistics)</p>
-                        </div>
-                    </div>
-                    <div class="col-sm media my-auto">
-                        <img class="mr-3" src="imgs/qurratulain-shahood.webp" alt="Dr. Qurratulain Shahood">
-                        <div class="media-body">
-                            <h5>Dr. Qurratulain Shahood</h5>
-                            <p>MBBS</p>
+
+                <!-- Shahab Abid Modal -->
+                <div id="ShahabAbidModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="logInModalTitle">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 id="ShahabAbidModalTitle display-4" class="modal-title">Dr. Shahab Abid</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="lead">
+                                Dr. Abid is currently heading the Section of Gastroenterology and Hepatology at AKU. He has vast experience in working as consultant physician and gastroenterologist in both private and public sector hospitals. He is heavily involved in Medical Education, teaching and mentoring students, residents, and fellows. He is also the certified examiner and assessor of fellowship examination of CPSP for Medicine. He is Chair of Department of Medicine Research Committee, and a member of University Seed Money Grant Committee and Postgraduate Medical Education Committee (PGMEC). He served as Director of GI Residency Program at AKU for five years. His scholarly interests have led him to procure research grants for clinical trials, and to serve as reviewer for several international and national peer reviewed journals. With more than 90 publications to his name, Dr. Abid continues to collaborate with universities, pharmaceutical industries, other regional hospitals, and international institutes to further academic practice in Gastroenterology. Dr. Abid is the member of executive council of Asia Pacific Association of Study of Liver (APASL), and serves as the General Secretary of Pakistan Society of Gastroenterology (PSG). When he is not at the hospital, Dr. Abid loves spending time with family, travelling, and catching up with his ever growing reading list.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- Roadmap Section -->
-            <section id="roadmap" class="content">
-                <h4>Road Map</h4>
+            <section id="roadmap" class="container py-5">
+                <h4 class="text-center display-4">Road Map</h4>
+                <img src="imgs/roadmap.png" class="d-flex img-fluid rounded my-3 mx-auto">
             </section>
 
             <!-- Contact Us Section -->
-            <section class="content">
+            <section class="container-fluid content">
                 <div class="row">
-                    <div class="col-sm align-items-center">
-                        <h3>
+                    <div class="col-sm d-flex align-self-stretch bg-info my-4 my-sm-0">
+                        <h3 class="text-center text-white d-flex align-self-center py-5 px-5">
                             Do you have a question or suggestion?<br /><br />
                             Fill out the form and we will contact you as soon as possible. Thank you for your interest!
                         </h3>
                     </div>
-                    <div id="contactUs" class="col-sm"></div>
+                    <div id="contactUs" class="col-sm container"></div>
                 </div>
             </section>
         </section>
@@ -207,22 +236,27 @@
         </section>
 
         <!-- Footer -->
-        <footer class="footer">
-            <div class="level">
-                <div class="level-item">
-                    Sponsored By: Ferozsons
-                </div>
-                <div class="level-item">
-                    <a class="heading">
-                        Privacy Policy
-                    </a>
-                </div>
+        <footer class="container-fluid bg-secondary mt-3">
+            <div class="row justify-contents-center">
+                <a class="btn btn-lg btn-success col-sm display-5">
+                    <img src="imgs/ferozsons-logo.webp" class="img-fluid">
+                    <p class="btn-text">Sponsored By: Ferozsons</p>
+                </a>
+                <a class="btn btn-lg btn-success col-sm d-flex align-items-center" href="https://play.google.com/store/apps/details?id=org.dilipk.akuh">
+                    <i class="fab fa-google-play fa-2x mr-2 mr-sm-0"></i>
+                    <div class="btn-text">
+                        <small>Available on</small>
+                        <br>
+                        <strong>Google Play</strong>
+                    </div>
+                </a>
             </div>
-            <div class="level">
-                <div class="level-item">
-                    &copy; 2019 DILIPK. All Rights Reserved.
-                </div>
-            </div>
+            <p class="display-5 text-center">
+            <a>Privacy Policy</a>
+            </p>
+            <p class="display-5 text-center">
+                &copy; 2019 DILIPK. All Rights Reserved.
+            </p>
         </footer>
 
         <!-- My Script -->

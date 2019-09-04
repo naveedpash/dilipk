@@ -1,0 +1,15 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/mixins";
+
+$theme-colors: (
+    "primary": #478D67,
+    "secondary": #FFAA75,
+    "success": #FFAA75,
+    "danger": #FFAA75,
+    "warning": #F5D38F,
+    "info": #FFAA75,
+    "dark": #6C7775
+);
+
+@import "node_modules/bootstrap/scss/bootstrap";

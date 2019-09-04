@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css": "node-sass src/scss/style.scss css/style.css",
+    "css:watch": "node-sass -w src/scss/style.scss css/style.css"
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +27,7 @@
     "@types/react-input-mask": "^2.0.3",
     "@types/react-jsonschema-form": "^1.6.2",
     "lodash": "^4.17.15",
+    "node-sass": "^4.12.0",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
     "webpack": "^4.39.1",
