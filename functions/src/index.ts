@@ -12,12 +12,12 @@ interface NewUserDetails {
 
 async function newUserAlert(details: NewUserDetails) {
     const transporter = createTransport({
-        host: "mail.dili.pk",
+        host: "smtp.gmail.com",
         port: 465,
         secure: true,
         auth: {
-            user: "admin@dili.pk",
-            pass: "evolve@2009"
+            user: "naveedpash@gmail.com",
+            pass: "yaAllah@786"
         }
     });
 
